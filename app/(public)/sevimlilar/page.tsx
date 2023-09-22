@@ -31,7 +31,7 @@ const Izbroj = () => {
                   className="p-2 rounded-[8px] text-[15px] cursor-pointer"
                   onClick={handleClearCart}
                 >
-                  Ochirish Hammasini
+                  O'chirish Hammasini
                 </p>
               )}
             </div>

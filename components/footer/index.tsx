@@ -83,7 +83,7 @@ const Footer: React.FC = () => {
             <li
               className="py-2 text-gray-600 text-sm"
             >
-              <span className="cursor-pointer">Tolov</span>
+              <span className="cursor-pointer">To'lov</span>
             </li>
             <li className="py-2 text-gray-600 text-sm">
               <span className="cursor-pointer">Yetkazib berish</span>

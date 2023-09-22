@@ -40,6 +40,7 @@ const Product: React.FC<CategoryTypes> = ({
     }).format(parseFloat(formattedPrice));
   };
 
+
   const cartCount = useSelector((state: RootState) => state.cart.cartCount);
   const cartData = useSelector((state: RootState) => state.cart.cartData);
 
@@ -66,13 +67,28 @@ const Product: React.FC<CategoryTypes> = ({
   }, [cartData, id]);
 
   const handleAddToCart = () => {
-    // Mahsulot ma'lumotlari bilan addToCart action'ini dispatch qilish
-    dispatch(
-      addToCart({ id, slug, imageURL, price: displayPrice, quantity: 1 })
-    );
-    setProductQuantity(productQuantity + 1);
-    toast.success("Product added to cart");
+    // Convert the displayPrice to a number before dispatching
+    const numericPrice = parseFloat(displayPrice.replace(/[^\d.-]/g, "")); // Remove non-numeric characters
+
+    if (!isNaN(numericPrice)) {
+      dispatch(
+        addToCart({
+          id,
+          slug,
+          imageURL,
+          price: numericPrice, // Use the numeric price here
+          quantity: 1,
+        })
+      );
+      setProductQuantity(productQuantity + 1);
+      toast.success("Mahsulot savatchaga qo'shildi");
+    } else {
+      console.error("Invalid numeric price");
+      // Handle the error or show a message to the user
+    }
   };
+
+
 
   const handleToggleFavorite = () => {
     if (isLiked) {

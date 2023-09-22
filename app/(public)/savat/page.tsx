@@ -39,8 +39,11 @@ const Savat = () => {
   cartData.forEach((item: any) => {
     totalQuantity += item.quantity;
     if (typeof item.price === "string") {
+      // Remove currency formatting and parse as a float
       const itemPrice = parseFloat(item.price.replace(/[^0-9.-]+/g, ""));
       totalPrice += itemPrice * item.quantity;
+    } else if (typeof item.price === "number") {
+      totalPrice += item.price * item.quantity;
     } else {
       console.error(`Invalid price data for item with ID ${item.id}`);
       // Handle the error or decide what to do in this case.
@@ -95,7 +98,7 @@ const Savat = () => {
                   className="p-2 rounded-[8px] laptop:text-[15px] tablet:text-[10px] mobi2:text-[10px] mobile:text-[10px] cursor-pointer"
                   onClick={handleClearCart}
                 >
-                  Ochirish hammasini
+                  O'chirish hammasini
                 </p>
               </div>
               {cartData.map((item: any) => (
@@ -121,7 +124,7 @@ const Savat = () => {
                     style={{ width: "80%" }}
                   >
                     <span>{item.slug}</span>
-                    <span>{item.price}</span>
+                    <span>{item.price.toLocaleString("en-US")}</span>
                     <span
                       onClick={() => handleRemoveFromCart(item.id)}
                       className="text-red-500 cursor-pointer w-[50px]"
