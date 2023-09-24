@@ -7,6 +7,16 @@
 // import { useState } from "react";
 // import { useDispatch, useSelector } from "react-redux";
 
+// interface RegistrationData {
+//   firstName: string;
+//   lastName: string;
+//   username: string;
+//   phoneNumber: string;
+//   password: string;
+//   router: any;
+// }
+
+
 // const Registration = () => {
 //   const { loading } = useSelector((state: RootState) => state.auth);
 //   const appDispatch = useDispatch();
@@ -20,16 +30,17 @@
 
 //   const registerUser = async () => {
 //     try {
-//       await appDispatch(
-//         register({
-//           firstName,
-//           lastName,
-//           username,
-//           phoneNumber,
-//           password,
-//           router: router,
-//         })
-//       );
+//       const registrationData = {
+//         firstName,
+//         lastName,
+//         username,
+//         phoneNumber,
+//         password,
+//         router,
+//       } as RegistrationData;
+
+//       await appDispatch(register(registrationData));
+
 //     } catch (error) {
 //       // Handle registration error (e.g., display an error message)
 //       console.error("Registration failed:", error);

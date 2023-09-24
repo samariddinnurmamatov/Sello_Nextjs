@@ -10,6 +10,7 @@ import {
 } from "@/redux/slice/favoriteSlice";
 import { RootState } from "@/redux/store/store";
 import { toast } from "react-toastify";
+import Image from "next/image";
 
 const Product: React.FC<CategoryTypes> = ({
   id,
@@ -114,14 +115,9 @@ const Product: React.FC<CategoryTypes> = ({
       <div>
         <div style={{ position: "relative" }}>
           <div
-            className="position-relative"
+            className="position-relative h-[180px] flex items-center justify-center rounded-[10px]"
             style={{
-              height: "180px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
               backgroundColor: "#f1f3f3",
-              borderRadius: "10px",
             }}
           >
             <span
@@ -172,16 +168,20 @@ const Product: React.FC<CategoryTypes> = ({
             }}
           >
             {isLiked ? (
-              <img
+              <Image
                 src="https://sello.uz/images/icn/heart.svg"
                 alt="Unlike"
                 style={{ width: "100px" }}
+                width={100}
+                height={50}
               />
             ) : (
-              <img
-                src="https://sello.uz/images/icn/heart-primary.svg "
+              <Image
+                src="https://sello.uz/images/icn/heart-primary.svg"
                 alt="Like"
                 style={{ width: "100px" }}
+                width={100}
+                height={50}
               />
             )}
           </button>

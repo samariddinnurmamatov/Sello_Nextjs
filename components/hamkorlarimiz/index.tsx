@@ -1,6 +1,7 @@
 "use client";
 
 import { CategoryTypes } from "@/types";
+import Image from "next/image";
 
 const Hamkorlarimiz = ({
   logo
@@ -8,15 +9,17 @@ const Hamkorlarimiz = ({
   return (
     <div>
       <div className="py-1 px-1">
-        <img
+        <Image
           className="img"
-          src={`https://static.sello.uz/unsafe/x180/https://static.sello.uz${logo}`}
+          src={`https://static.sello.uz${logo}`}
           alt="Hamkor"
           style={{
             width: "100%",
             margin: "0 auto",
             height: "40px",
           }}
+          width={100}
+          height={20}
           loading="lazy"
         />
       </div>

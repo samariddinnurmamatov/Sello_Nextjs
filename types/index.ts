@@ -39,7 +39,7 @@ export interface User {
   lastName: string;
   username: string;
   phoneNumber: string;
-  password?: string;
+  password: string;
 }
 
 export interface AuthState {

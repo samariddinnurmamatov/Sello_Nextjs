@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Contact } from "@/utils/components";
 import Product from "@/components/Card";
 import { clearFavorites } from "@/redux/slice/favoriteSlice";
+import Image from "next/image";
 
 const Izbroj = () => {
   const dispatch = useDispatch();
@@ -49,10 +50,12 @@ const Izbroj = () => {
                     Начать покупки
                   </Link>
                 </div>
-                <img
+                <Image
                   src="https://sello.uz/images/fixed/empty-card.svg"
                   alt="Ваша корзина пуста"
-                  style={{ width: "50%" }}
+                  width={100}
+                  height={100}
+                  className="object-contain w-[45%]"
                 />
               </div>
             ) : (
@@ -67,14 +70,7 @@ const Izbroj = () => {
                 {favorites.map((favorite) => (
                   <div
                     key={favorite.id}
-                    className="cursor-pointer border border-gray-200 overflow-hidden p-2"
-                    style={{
-                      width: "100%",
-                      borderRadius: "9px",
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "space-between",
-                    }}
+                    className="cursor-pointer border border-gray-200 overflow-hidden p-2 w-[100%] rounded-[9px] flex flex-col justify-between"
                   >
                     <Product
                       id={favorite.id}

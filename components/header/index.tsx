@@ -28,14 +28,13 @@ const HeaderLogo: React.FC = () => (
 
 // HeaderSearch component for rendering the search input
 const HeaderSearch: React.FC = () => (
-  <div className="hidden laptop:block" style={{ width: "47%" }}>
+  <div className="hidden laptop:block w-[47%]">
     <div
-      style={{ width: "100%" }}
-      className="flex border border-gray-100 rounded-lg overflow-hidden"
+      className="flex border border-gray-100 rounded-lg overflow-hidden w-[100%]"
     >
       <input
         style={{ width: "100%", fontSize: "15px" }}
-        className="p-2 px-3 outline-none placeholder-gray-300"
+        className="p-2 px-3 outline-none placeholder-gray-300 w-[100%] text-[15px]"
         type="text"
         placeholder="Mahsulotlar bo'yicha qidirish"
       />
@@ -68,7 +67,7 @@ const HeaderNavItem: React.FC<HeaderNavItemProps> = ({
           e.currentTarget.style.color = "black";
         }}
         style={{ fontSize: "14px" }}
-        className="text-gray-500"
+        className="text-gray-500 text-[14px]"
       >
         {text}
       </span>
@@ -125,29 +124,34 @@ const Header: React.FC = () => {
             Sello Market
           </button>
           <div className="flex gap-[55px] items-center justify-between">
-            <p className="text-gray-600" style={{ fontSize: "13.4px" }}>
+            <p className="text-gray-600 text-[13px]">
               Tarqatish punktigacha yetkazib berish bepul!
             </p>
             <div className="flex items-center gap-[35px]">
               <button
-                className="btn btn-muted text-white px-2 ftz-10 py-1"
+                className="btn btn-muted text-white px-2 ftz-10 py-1 text-[14px] rounded-[7px]"
                 style={{
                   backgroundColor: "rgb(0, 144, 144)",
-                  borderRadius: "7px",
-                  fontSize: "14px",
                 }}
               >
                 Sello-da sotish
               </button>
               <div className="flex">
                 <p className="cursor-pointer text-gray-500 text-[14px]">Uzb </p>
-                <img
+                <Image
                   src="https://sello.uz/images/icn/chevron-down-grey.svg"
-                  alt=""
+                  alt="Lang"
+                  width={20}
+                  height={10}
                 />
               </div>
               <div className="flex gap-[7px]">
-                <img src="https://sello.uz/images/icn/location.svg" alt="" />
+                <Image
+                  src="https://sello.uz/images/icn/location.svg"
+                  alt="Location"
+                  width={10}
+                  height={10}
+                />
                 <p className="cursor-pointer text-gray-500 text-[14px]">
                   Toshkent
                 </p>
@@ -159,16 +163,19 @@ const Header: React.FC = () => {
       <div className="bg-gray-100 tablet:hidden">
         <div className="container flex justify-between items-center p-3">
           <div className="flex items-center gap-[10px]">
-            <img src="https://sello.uz/images/fixed/mob-logo.svg" alt="" />
+            <Image
+              src="https://sello.uz/images/fixed/mob-logo.svg"
+              alt="Mobile-Sello"
+              width={50}
+              height={50}
+            />
             <p className="text-[10px]">Открыть в приложении</p>
           </div>
           <div>
             <button
-              className="btn btn-muted text-white px-4 ftz-10 py-1"
+              className="btn btn-muted text-white px-4 ftz-10 py-1 text-[12px] rounded-[10px]"
               style={{
                 backgroundColor: "rgb(0, 179, 168)",
-                borderRadius: "10px",
-                fontSize: "12px",
               }}
             >
               Открыть
@@ -208,6 +215,7 @@ const Header: React.FC = () => {
                   count={cartCount}
                 />
                 <HeaderNavItem icon={person} text="Register" href="/" />
+                {/* <HeaderNavItem icon={person} text="Login" href="/login" /> */}
                 {/* {isAuthenticated ? (
                   <Fragment>
                     <HeaderNavItem
@@ -232,12 +240,10 @@ const Header: React.FC = () => {
           </div>
           <div className="block laptop:hidden container p-3">
             <div
-              style={{ width: "100%" }}
-              className="flex border border-gray-200 rounded-lg overflow-hidden"
+              className="flex border border-gray-200 rounded-lg overflow-hidden w-[100%]"
             >
               <input
-                style={{ width: "100%", fontSize: "16px" }}
-                className="p-2 outline-none placeholder-gray-300"
+                className="p-2 outline-none placeholder-gray-300 w-[100%] text-[16px]"
                 type="text"
                 placeholder="Mahsulotlar bo'yicha qidirish"
               />

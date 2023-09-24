@@ -9,6 +9,7 @@ import {
 import { RootState } from "@/redux/store/store";
 import Link from "next/link";
 import { Contact } from "@/utils/components";
+import Image from "next/image";
 
 const Savat = () => {
   const dispatch = useDispatch();
@@ -39,14 +40,12 @@ const Savat = () => {
   cartData.forEach((item: any) => {
     totalQuantity += item.quantity;
     if (typeof item.price === "string") {
-      // Remove currency formatting and parse as a float
       const itemPrice = parseFloat(item.price.replace(/[^0-9.-]+/g, ""));
       totalPrice += itemPrice * item.quantity;
     } else if (typeof item.price === "number") {
       totalPrice += item.price * item.quantity;
     } else {
       console.error(`Invalid price data for item with ID ${item.id}`);
-      // Handle the error or decide what to do in this case.
     }
   });
 
@@ -67,9 +66,12 @@ const Savat = () => {
       <div className="container p-3">
         {cartData.length === 0 ? (
           <div className="laptop:flex justify-around">
-            <img
+            <Image
               src="https://sello.uz/images/fixed/empty-card.svg"
               alt="Your cart is empty"
+              width={100}
+              height={100}
+              className="object-contain w-[43%]"
             />
             <div className="py-14">
               <h2 className="font-[500] text-[21px]">Корзина 0</h2>
@@ -104,24 +106,19 @@ const Savat = () => {
               {cartData.map((item: any) => (
                 <div
                   key={item.id}
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    gap: "15px",
-                  }}
-                  className="border border-gray-300 rounded-[6px] p-4 mt-8"
+                  className="border border-gray-300 rounded-[6px] p-4 mt-8 flex justify-between items-center gap-[15px]"
                 >
-                  <span style={{ width: "150px", background: "gray" }}>
+                  <span
+                    className="w-[150px] bg-gray-500"
+                  >
                     <img
                       src={`https://static.sello.uz/unsafe/x180/https://static.sello.uz${item.imageURL}`}
                       alt="img"
-                      style={{ width: "100%" }}
+                      className="w-[100%]"
                     />
                   </span>
                   <div
-                    className="flex flex-col gap-[10px]"
-                    style={{ width: "80%" }}
+                    className="flex flex-col gap-[10px] w-[80%]"
                   >
                     <span>{item.slug}</span>
                     <span>{item.price.toLocaleString("en-US")}</span>
@@ -129,7 +126,7 @@ const Savat = () => {
                       onClick={() => handleRemoveFromCart(item.id)}
                       className="text-red-500 cursor-pointer w-[50px]"
                     >
-                      Ochirish
+                      O'chirish
                     </span>
                   </div>
                   <div className="flex gap-[10px]">

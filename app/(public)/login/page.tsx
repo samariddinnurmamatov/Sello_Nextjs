@@ -9,7 +9,7 @@
 
 // const Login = () => {
 //   const { loading } = useSelector((state: RootState) => state.auth); // Specify RootState type
-//   const appDispatch = useDispatch(); // Use a different variable name for the app dispatch
+//   const dispatch = useDispatch(); // Use a different variable name for the app dispatch
 //   const router = useRouter();
 
 //   const [username, setUsername] = useState<string>(""); // State for username
@@ -17,7 +17,7 @@
 
 //   const loginUser = async () => {
 //     const userData = { username, password }; // Use the entered username and password
-//     appDispatch(login({ user: userData, router: router })); // Use appDispatch to call the action
+//     dispatch(login({ user: userData, router: router })); // Use appDispatch to call the action
 //   }
 
 //   return (

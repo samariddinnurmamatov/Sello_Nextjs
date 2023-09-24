@@ -17,6 +17,7 @@ import {
 
 import { HomeData, Item, SectionProps } from "@/types";
 import { request } from "@/server/request";
+import Image from "next/image";
 
 const fetchData = async (endpoint: string): Promise<Item[]> => {
   try {
@@ -36,7 +37,7 @@ const fetchData = async (endpoint: string): Promise<Item[]> => {
 const Section: React.FC<SectionProps> = ({ title, data, Component }) => (
   <div className="container py-6 px-3">
     <div className="flex justify-between items-center gap-[10px]">
-      <h2 style={{fontWeight: "500", fontFamily: "Roboto, sans-serif", }} className="text-[22px] mobile:text-[18px] tablet:text-[28px] text-dark">{title}</h2>
+      <h2 style={{fontFamily: "Roboto, sans-serif", }} className="text-[22px] mobile:text-[18px] tablet:text-[28px] text-dark font-[500]">{title}</h2>
       <p className="cursor-pointer" style={{ color: "#009c92" }}>
         Hammasini korish
       </p>
@@ -165,20 +166,19 @@ const Home: React.FC = () => {
       <div className="container py-5 px-3 hidden laptop:block">
         <div className="flex items-center gap-[7px] justify-between">
           <div style={{ width: "50%" }} className="hidden laptop:block">
-            <img
+            <Image
               src="https://sello.uz/images/banner/main-bottom-left-banner.svg"
               alt="Hamkor"
               style={{ width: "100%" }}
+              width={150}
+              height={150}
+              className="w-[100%]"
             />
           </div>
           <div>
-            <h2 style={{ fontSize: "24px", fontWeight: "600" }}>
+            <h2 className="text-[24px] font-[600]">
               Bizning hamkorlarimiz
             </h2>
-            {/* <span className="text-gray-600 text-[16px]">
-              Biz bilan hamkorlik qilib, siz o'z do'koningiz savdos ini
-              oshirishingiz mumkin.
-            </span> */}
             {error && (
               <div className="error-message container 5 text-center">
                 {error}
@@ -189,10 +189,6 @@ const Home: React.FC = () => {
                 title=""
                 data={data.merchant}
                 Component={Hamkorlarimiz}
-                // style={{
-                //   display: "grid",
-                //   gridTemplateColumns: "repeat(5, 1fr)",
-                // }}
               />
             )}
           </div>

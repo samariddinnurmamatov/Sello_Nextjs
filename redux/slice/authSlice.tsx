@@ -1,5 +1,3 @@
-// "use client"
-
 // import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 // import { deleteCookie, getCookie, setCookie } from "cookies-next";
 
