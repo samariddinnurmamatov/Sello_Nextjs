@@ -169,7 +169,7 @@ const Savat = () => {
                   <p className="text-[13px] text-gray-500">
                     Общая сумма к оплате :{" "}
                   </p>
-                  <span>{totalPrice} UZS</span>
+                  <span>{totalPrice.toLocaleString()} UZS</span>
                 </div>
                 <div className="py-3">
                   <button
