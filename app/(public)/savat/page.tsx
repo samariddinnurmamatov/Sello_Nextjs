@@ -118,7 +118,7 @@ const Savat = () => {
                   </span>
                   <div className="flex flex-col gap-[10px] w-[80%]">
                     <span>{item.slug}</span>
-                    <span>{item.price.toLocaleString()}</span>
+                    <span>{item.price}</span>
                     <span
                       onClick={() => handleRemoveFromCart(item.id)}
                       className="text-red-500 cursor-pointer w-[50px]"

@@ -21,25 +21,25 @@ const Product: React.FC<CategoryTypes> = ({
   quantity,
   discounted_price,
 }) => {
-  const formatPrice = (price: any) => {
-    // Convert the price to a number (if it's not already)
-    const numericPrice = parseFloat(price);
+  // const formatPrice = (price: any) => {
+  //   // Convert the price to a number (if it's not already)
+  //   const numericPrice = parseFloat(price);
 
-    // Check if the price is valid
-    if (isNaN(numericPrice)) {
-      return "Invalid Price";
-    }
+  //   // Check if the price is valid
+  //   if (isNaN(numericPrice)) {
+  //     return "Invalid Price";
+  //   }
 
-    // Divide the price by 100000 to convert it to the desired format
-    const formattedPrice = (numericPrice / 100000).toFixed(0);
+  //   // Divide the price by 100000 to convert it to the desired format
+  //   const formattedPrice = (numericPrice / 100000).toFixed(0);
 
-    // Use Intl.NumberFormat to format the number with commas
-    return new Intl.NumberFormat("uz-UZ", {
-      style: "currency",
-      currency: "UZS",
-      minimumFractionDigits: 3,
-    }).format(parseFloat(formattedPrice));
-  };
+  //   // Use Intl.NumberFormat to format the number with commas
+  //   return new Intl.NumberFormat("uz-UZ", {
+  //     style: "currency",
+  //     currency: "UZS",
+  //     minimumFractionDigits: 3,
+  //   }).format(parseFloat(formattedPrice));
+  // };
 
 
   const cartCount = useSelector((state: RootState) => state.cart.cartCount);
@@ -47,8 +47,17 @@ const Product: React.FC<CategoryTypes> = ({
 
   const displayPrice =
     discounted_price !== null
-      ? formatPrice(discounted_price)
-      : formatPrice(price);
+      ? new Intl.NumberFormat("uz-UZ", {
+          style: "currency",
+          currency: "UZS",
+          minimumFractionDigits: 3,
+        }).format(discounted_price / 100000)
+      : new Intl.NumberFormat("uz-UZ", {
+          style: "currency",
+          currency: "UZS",
+          minimumFractionDigits: 3,
+        }).format(price / 100000);
+
 
 
   const discountText = discount !== null ? `-${discount}%` : null;
@@ -68,26 +77,26 @@ const Product: React.FC<CategoryTypes> = ({
   }, [cartData, id]);
 
   const handleAddToCart = () => {
-    // Convert the displayPrice to a number before dispatching
-    const numericPrice = parseFloat(displayPrice.replace(/[^0-9.]/g, "")); // Remove non-numeric characters
+    // // Convert the displayPrice to a number before dispatching
+    // const numericPrice = parseFloat(displayPrice.replace(/[^0-9.]/g, "")); // Remove non-numeric characters
 
-    if (!isNaN(numericPrice)) {
+    // if (!isNaN(numericPrice)) {
       dispatch(
         addToCart({
           id,
           slug,
           imageURL,
-          price: numericPrice, // Use the numeric price here
+          price: displayPrice, // Use the numeric price here
           discounted_price,
           quantity: 1,
         })
       );
       setProductQuantity(productQuantity + 1);
       toast.success("Mahsulot savatchaga qo'shildi");
-    } else {
-      console.error("Invalid numeric price");
-      // Handle the error or show a message to the user
-    }
+    // } else {
+    //   console.error("Invalid numeric price");
+    //   // Handle the error or show a message to the user
+    // }
   };
 
 
@@ -216,7 +225,9 @@ const Product: React.FC<CategoryTypes> = ({
             )}
           </p>
         </div>
-        <h2 className="pb-3 px-1 font-[600] text-[15px]">{displayPrice}</h2>
+        <h2 className="pb-3 px-1 font-[600] text-[15px]">
+          {displayPrice}
+        </h2>
         <button
           className="rounded-[6px] overflow-hidden text-white text-[14px] px-1"
           style={{

@@ -5,7 +5,7 @@ interface CartItem {
   quantity: number;
   imageURL: string | number;
   name?: string | number;
-  price?: number;
+  price?: any;
   discounted_price?: number | string;
   slug: string; // Add the 'slug' property here
 }

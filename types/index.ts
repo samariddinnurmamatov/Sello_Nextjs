@@ -54,7 +54,7 @@ export interface CategoryTypes {
   description?: string;
   imageURL: string;
   logo?: string;
-  price?: number | string;
+  price: any;
   discounted_price: number;
   discount?: string;
   quantity?: number;
