@@ -69,7 +69,7 @@ const Product: React.FC<CategoryTypes> = ({
 
   const handleAddToCart = () => {
     // Convert the displayPrice to a number before dispatching
-    const numericPrice = parseFloat(displayPrice.replace(/[^\d.-]/g, "")); // Remove non-numeric characters
+    const numericPrice = parseFloat(displayPrice.replace(/[^0-9.]/g, "")); // Remove non-numeric characters
 
     if (!isNaN(numericPrice)) {
       dispatch(
