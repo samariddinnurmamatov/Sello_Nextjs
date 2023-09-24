@@ -118,7 +118,7 @@ const Savat = () => {
                   </span>
                   <div className="flex flex-col gap-[10px] w-[80%]">
                     <span>{item.slug}</span>
-                    <span>{parseFloat(item.price).toLocaleString()}</span>
+                    <span>{item.price.toLocaleString()}</span>
                     <span
                       onClick={() => handleRemoveFromCart(item.id)}
                       className="text-red-500 cursor-pointer w-[50px]"
@@ -169,7 +169,7 @@ const Savat = () => {
                   <p className="text-[13px] text-gray-500">
                     Общая сумма к оплате :{" "}
                   </p>
-                  <span>{totalPrice.toLocaleString("en-US")} UZS</span>
+                  <span>{totalPrice} UZS</span>
                 </div>
                 <div className="py-3">
                   <button

@@ -41,6 +41,16 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(public)/savat/page.js"
+    ],
+    "/(public)/sevimlilar/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(public)/sevimlilar/page.js"
+    ],
+    "/(public)/sevimlilar/loading": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(public)/sevimlilar/loading.js"
     ]
   }
 }
