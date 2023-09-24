@@ -48,6 +48,7 @@ const Savat = () => {
       console.error(`Invalid price data for item with ID ${item.id}`);
     }
   });
+  
 
 
   return (
@@ -108,20 +109,16 @@ const Savat = () => {
                   key={item.id}
                   className="border border-gray-300 rounded-[6px] p-4 mt-8 flex justify-between items-center gap-[15px]"
                 >
-                  <span
-                    className="w-[150px] bg-gray-500"
-                  >
+                  <span className="w-[150px] bg-gray-500">
                     <img
                       src={`https://static.sello.uz/unsafe/x180/https://static.sello.uz${item.imageURL}`}
                       alt="img"
                       className="w-[100%]"
                     />
                   </span>
-                  <div
-                    className="flex flex-col gap-[10px] w-[80%]"
-                  >
+                  <div className="flex flex-col gap-[10px] w-[80%]">
                     <span>{item.slug}</span>
-                    <span>{item.price.toLocaleString("en-US")}</span>
+                    <span>{parseFloat(item.price).toLocaleString()}</span>
                     <span
                       onClick={() => handleRemoveFromCart(item.id)}
                       className="text-red-500 cursor-pointer w-[50px]"

@@ -78,6 +78,7 @@ const Product: React.FC<CategoryTypes> = ({
           slug,
           imageURL,
           price: numericPrice, // Use the numeric price here
+          discounted_price,
           quantity: 1,
         })
       );
