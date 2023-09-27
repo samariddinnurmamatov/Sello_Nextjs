@@ -1,4 +1,4 @@
-// File: /Users/samariddin/Desktop/Najot Ta'lim/Sello_Website/app/(public)/page.tsx
+// File: /Users/samariddin/Desktop/all/Najot Ta'lim/Sello_Website/app/(public)/page.tsx
 import * as entry from '../../../../app/(public)/page.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

@@ -1,19 +1,10 @@
 {
   "pages": {
-    "/(public)/savat/loading": [
+    "/(public)/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(public)/savat/loading.js"
-    ],
-    "/(public)/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(public)/layout.js"
-    ],
-    "/(public)/loading": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(public)/loading.js"
+      "static/css/app/(public)/page.css",
+      "static/chunks/app/(public)/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -31,16 +22,25 @@
       "static/chunks/main-app.js",
       "static/chunks/app/not-found.js"
     ],
+    "/(public)/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(public)/layout.js"
+    ],
+    "/(public)/loading": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(public)/loading.js"
+    ],
+    "/(public)/savat/loading": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(public)/savat/loading.js"
+    ],
     "/(public)/savat/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(public)/savat/page.js"
-    ],
-    "/(public)/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/(public)/page.css",
-      "static/chunks/app/(public)/page.js"
     ]
   }
 }

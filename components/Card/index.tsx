@@ -9,8 +9,9 @@ import {
   removeFromFavorites,
 } from "@/redux/slice/favoriteSlice";
 import { RootState } from "@/redux/store/store";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import Image from "next/image";
+import toast from "react-hot-toast";
 
 const Product: React.FC<CategoryTypes> = ({
   id,
@@ -117,7 +118,7 @@ const Product: React.FC<CategoryTypes> = ({
       );
     }
     setIsLiked(!isLiked);
-    toast.info(isLiked ? "Product unliked" : "Product liked");
+    toast.success(isLiked ? "Product unliked" : "Product liked");
   };
 
   return (
@@ -146,23 +147,25 @@ const Product: React.FC<CategoryTypes> = ({
                 inset: "0px",
               }}
             >
-              <img
-                className="img"
-                src={`https://static.sello.uz/unsafe/x180/https://static.sello.uz${imageURL}`}
-                alt="Image"
-                style={{
-                  inset: "0px",
-                  boxSizing: "border-box",
-                  padding: "0px",
-                  border: "medium",
-                  margin: "auto",
-                  display: "block",
-                  minHeight: "100%",
-                  maxHeight: "100%",
-                  objectFit: "contain",
-                }}
-                loading="lazy"
-              />
+              <picture>
+                <img
+                  className="img"
+                  src={`https://static.sello.uz/unsafe/x180/https://static.sello.uz${imageURL}`}
+                  alt="Image"
+                  style={{
+                    inset: "0px",
+                    boxSizing: "border-box",
+                    padding: "0px",
+                    border: "medium",
+                    margin: "auto",
+                    display: "block",
+                    minHeight: "100%",
+                    maxHeight: "100%",
+                    objectFit: "contain",
+                  }}
+                  loading="lazy"
+                />
+              </picture>
             </span>
           </div>
           <button
@@ -225,9 +228,7 @@ const Product: React.FC<CategoryTypes> = ({
             )}
           </p>
         </div>
-        <h2 className="pb-3 px-1 font-[600] text-[15px]">
-          {displayPrice}
-        </h2>
+        <h2 className="pb-3 px-1 font-[600] text-[15px]">{displayPrice}</h2>
         <button
           className="rounded-[6px] overflow-hidden text-white text-[14px] px-1"
           style={{

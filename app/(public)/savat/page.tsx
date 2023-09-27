@@ -110,11 +110,13 @@ const Savat = () => {
                   className="border border-gray-300 rounded-[6px] p-4 mt-8 flex justify-between items-center gap-[15px]"
                 >
                   <span className="w-[150px] bg-gray-500">
-                    <img
-                      src={`https://static.sello.uz/unsafe/x180/https://static.sello.uz${item.imageURL}`}
-                      alt="img"
-                      className="w-[100%]"
-                    />
+                    <picture>
+                      <img
+                        src={`https://static.sello.uz/unsafe/x180/https://static.sello.uz${item.imageURL}`}
+                        alt="img"
+                        className="w-[100%]"
+                      />
+                    </picture>
                   </span>
                   <div className="flex flex-col gap-[10px] w-[80%]">
                     <span>{item.slug}</span>

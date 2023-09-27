@@ -2,7 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 
-import { ToastContainer, toast } from "react-toastify";
+// import { ToastContainer, toast } from "react-toastify";
+import toast, { Toaster } from "react-hot-toast";
 import "react-toastify/dist/ReactToastify.css";
 import ScrollToTop from "react-scroll-to-top";
 
@@ -138,7 +139,7 @@ const Home: React.FC = () => {
   return (
     <>
       <Banner />
-      <ToastContainer />
+      <Toaster />
       {error && (
         <div className="error-message container p-5 text-center">{error}</div>
       )}{" "}
